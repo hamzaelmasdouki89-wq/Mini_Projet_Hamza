@@ -1,7 +1,6 @@
 export const validateRequest = (formData) => {
   const errors = [];
 
-  // Titre validation
   if (!formData.titre || !formData.titre.trim()) {
     errors.push("Le titre est requis");
   } else if (formData.titre.trim().length < 5) {
@@ -10,7 +9,6 @@ export const validateRequest = (formData) => {
     errors.push("Le titre ne peut pas dépasser 100 caractères");
   }
 
-  // Description validation
   if (!formData.description || !formData.description.trim()) {
     errors.push("La description est requise");
   } else if (formData.description.trim().length < 10) {

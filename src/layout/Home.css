@@ -1,5 +1,3 @@
-/* Home.css - X.com Dark Theme */
-
 :root {
   --bg-primary: #000;
   --bg-secondary: #000;
@@ -28,7 +26,6 @@
   padding: 0;
 }
 
-/* Hero Section */
 .home-hero {
   padding: 3rem 2rem;
   border-bottom: 1px solid var(--border-color);
@@ -65,7 +62,6 @@
   font-weight: 400;
 }
 
-/* Stats Bar */
 .stats-bar {
   display: flex;
   align-items: center;
@@ -97,7 +93,6 @@
   background-color: var(--border-color);
 }
 
-/* Main Content */
 .section {
   padding: 2rem;
   max-width: 1200px;
@@ -133,7 +128,6 @@
   font-weight: 400;
 }
 
-/* Actions Grid */
 .actions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -248,13 +242,7 @@
   transform: translateX(0);
 }
 
-/* Admin Section */
 .admin-section {
-  /* background: linear-gradient(
-    135deg,
-    rgba(23, 191, 99, 0.05) 0%,
-    rgba(156, 39, 176, 0.05) 100%
-  ); */
   border: 1px solid #333;
 }
 
@@ -355,7 +343,6 @@
   margin-top: 0.25rem;
 }
 
-/* User Card */
 .user-card {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
@@ -458,7 +445,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Features Grid */
 .info-section {
   border-top: 1px solid var(--border-color);
   padding-top: 3rem;
@@ -689,7 +675,6 @@
   }
 }
 
-/* Dark theme scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

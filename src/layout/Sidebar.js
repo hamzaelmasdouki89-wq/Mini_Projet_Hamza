@@ -44,7 +44,6 @@ function Sidebar() {
   const isAdmin = user?.admin;
   const abortControllerRef = useRef(null);
 
-  // Setup abort controller and cleanup
   useEffect(() => {
     abortControllerRef.current = new AbortController();
     return () => {
@@ -83,7 +82,6 @@ function Sidebar() {
     }
   };
 
-  // FIX: Color change with API persistence
   const handleColorChange = async (color) => {
     try {
       setLoading(true);
@@ -94,14 +92,12 @@ function Sidebar() {
         return;
       }
 
-      // Make API call to update color
       await axios.put(
         `${API_ENDPOINTS.USERS}/${userId}`,
         { couleur: color.value },
         { signal: abortControllerRef.current?.signal },
       );
 
-      // Update Redux state
       dispatch({
         type: "UPDATE_USER_COLOR",
         payload: color.value,
@@ -135,11 +131,9 @@ function Sidebar() {
     }));
   };
 
-  // FIX: Enhanced form validation
   const handleCreateRequest = async (e) => {
     e.preventDefault();
 
-    // Validate form data
     const errors = validateRequest(formData);
     if (errors.length > 0) {
       errors.forEach((err) => notify.error(err));
@@ -189,12 +183,10 @@ function Sidebar() {
 
   return (
     <aside className="sidebar">
-      {/* Logo */}
       <div className="sidebar-logo">
-        <span className="logo-text">hAAa</span>
+        <span className="logo-text">hAAs</span>
       </div>
 
-      {/* Main Navigation */}
       <nav className="sidebar-nav">
         {navigationItems.map((item) => (
           <button
@@ -209,7 +201,6 @@ function Sidebar() {
         ))}
       </nav>
 
-      {/* Post Button */}
       <button
         className="post-btn"
         onClick={() => {
@@ -220,7 +211,6 @@ function Sidebar() {
         Demande <Plus size={16} aria-hidden="true" />
       </button>
 
-      {/* User Profile Section */}
       <div className="user-profile-card">
         <div
           className="profile-avatar"
@@ -262,7 +252,6 @@ function Sidebar() {
         </div>
       </div>
 
-      {/* Color Picker */}
       {showColorPicker && (
         <div className="color-picker-section">
           <h4 className="color-picker-title">Choisissez votre couleur</h4>
@@ -283,7 +272,6 @@ function Sidebar() {
         </div>
       )}
 
-      {/* Request Modal */}
       {showRequestModal &&
         createPortal(
           <div

@@ -17,7 +17,7 @@ export const useTranslation = () => {
       value = value?.[k];
     }
 
-    return value || key; // Fallback to key if translation not found
+    return value || key;
   };
 
   return { t, currentLanguage, availableLanguages };

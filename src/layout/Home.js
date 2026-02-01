@@ -54,7 +54,6 @@ function Home() {
 
   return (
     <div className="home-container">
-      {/* Hero Section */}
       <div className="home-hero">
         <div className="hero-content">
           <h1 className="hero-title">
@@ -66,7 +65,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Stats Bar */}
       <div className="stats-bar">
         <div className="stat-item">
           <TrendingUp size={18} className="stat-icon" />
@@ -84,7 +82,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Quick Actions Section */}
       <div className="section">
         <div className="section-header">
           <h2>Actions Rapides</h2>
@@ -133,7 +130,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Admin Section */}
       {isAdmin && (
         <div className="section admin-section">
           <div className="section-header">
@@ -193,7 +189,6 @@ function Home() {
         </div>
       )}
 
-      {/* User Info Section */}
       <div className="section">
         <div className="section-header">
           <HomeIcon size={20} className="section-icon" />
@@ -246,7 +241,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Features Info Section */}
       <div className="section info-section">
         <div className="section-header">
           <MessageSquare size={20} className="section-icon" />

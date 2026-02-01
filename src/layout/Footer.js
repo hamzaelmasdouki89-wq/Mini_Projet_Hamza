@@ -7,7 +7,6 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        {/* Logo Section */}
         <div className="footer-section logo-section">
           <div className="footer-logo">
             <span className="logo-text">hAAs</span>
@@ -34,7 +33,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Product Section */}
         <div className="footer-section">
           <h4 className="section-title">Produit</h4>
           <ul className="link-list">
@@ -56,7 +54,6 @@ function Footer() {
           </ul>
         </div>
 
-        {/* Company Section */}
         <div className="footer-section">
           <h4 className="section-title">Entreprise</h4>
           <ul className="link-list">
@@ -78,7 +75,6 @@ function Footer() {
           </ul>
         </div>
 
-        {/* Resources Section */}
         <div className="footer-section">
           <h4 className="section-title">Ressources</h4>
           <ul className="link-list">
@@ -100,7 +96,6 @@ function Footer() {
           </ul>
         </div>
 
-        {/* Legal Section */}
         <div className="footer-section">
           <h4 className="section-title">Légal</h4>
           <ul className="link-list">
@@ -123,10 +118,8 @@ function Footer() {
         </div>
       </div>
 
-      {/* Divider */}
       <div className="footer-divider"></div>
 
-      {/* Bottom Section */}
       <div className="footer-bottom">
         <div className="bottom-left">
           <p className="copyright">
@@ -140,14 +133,12 @@ function Footer() {
 
         <div className="bottom-right">
           <p className="made-with">
-            Créé avec <Heart size={14} className="heart-icon" /> pour faciliter
-            votre expérience
+            Créé avec Hamza pour faciliter votre expérience
           </p>
           <p className="version">Version 1.0.0</p>
         </div>
       </div>
 
-      {/* Scroll to top button */}
       <button
         className="scroll-to-top"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

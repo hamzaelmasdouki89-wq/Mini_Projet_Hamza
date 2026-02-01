@@ -132,12 +132,10 @@ function Requests() {
 
   return (
     <div className="requests-container">
-      {/* Header */}
       <div className="requests-header">
         <h2>Demandes des Utilisateurs</h2>
       </div>
 
-      {/* Stats */}
       <div className="stats-bar">
         <div className="stat-item">
           <span className="stat-label">En attente</span>
@@ -153,7 +151,6 @@ function Requests() {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="filters-bar">
         <div className="search-box">
           <Search size={18} />
@@ -190,7 +187,6 @@ function Requests() {
         </div>
       </div>
 
-      {/* Table */}
       <div className="table-wrapper">
         {loading ? (
           <div className="loading">Chargement des demandes...</div>
@@ -281,7 +277,6 @@ function Requests() {
         )}
       </div>
 
-      {/* Pagination */}
       {filteredRequests.length > 0 && (
         <div className="pagination">
           <button
@@ -302,7 +297,6 @@ function Requests() {
         </div>
       )}
 
-      {/* Modal - Request Details */}
       {selectedRequest && (
         <div className="modal-overlay" onClick={() => setSelectedRequest(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

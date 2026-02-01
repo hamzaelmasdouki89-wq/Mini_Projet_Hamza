@@ -12,6 +12,7 @@ import {
   XCircle,
   ChevronLeft,
   ChevronRight,
+  Crown,
 } from "lucide-react";
 import "./Users.css";
 
@@ -65,6 +66,34 @@ function Users() {
         setTimeout(() => setSuccess(""), 3000);
       } catch (err) {
         setError("Erreur lors de la suppression");
+      }
+    }
+  };
+
+  const handlePromoteUser = async (userId, currentAdminStatus) => {
+    const actionLabel = currentAdminStatus ? "rétrograder" : "promouvoir";
+    const confirmMessage = currentAdminStatus
+      ? "Êtes-vous sûr de vouloir rétrograder cet administrateur en utilisateur normal?"
+      : "Êtes-vous sûr de vouloir promouvoir cet utilisateur en administrateur?";
+
+    if (window.confirm(confirmMessage)) {
+      try {
+        const updatedUser = {
+          ...users.find((u) => u.id === userId),
+          admin: !currentAdminStatus,
+        };
+
+        await axios.put(`${API}/${userId}`, updatedUser);
+        setUsers(users.map((u) => (u.id === userId ? updatedUser : u)));
+
+        const successMsg = currentAdminStatus
+          ? "Utilisateur rétrogradé avec succès"
+          : "Utilisateur promu en administrateur avec succès";
+        setSuccess(successMsg);
+        setTimeout(() => setSuccess(""), 3000);
+      } catch (err) {
+        setError(`Erreur lors de la ${actionLabel} de l'utilisateur`);
+        setTimeout(() => setError(""), 3000);
       }
     }
   };
@@ -135,14 +164,12 @@ function Users() {
   return (
     <div className="users-container">
       <div className="users-wrapper">
-        {/* Header */}
         <div className="users-header">
           <div className="header-top">
             <h2>Gestion des Utilisateurs</h2>
             <p className="user-count">{filteredUsers.length} utilisateurs</p>
           </div>
 
-          {/* Search and Filter Bar */}
           <div className="search-filter-section">
             <div className="search-input-wrapper">
               <Search size={16} className="search-icon" />
@@ -177,7 +204,6 @@ function Users() {
           </div>
         </div>
 
-        {/* Alerts */}
         {error && (
           <div className="alert alert-danger">
             <XCircle size={16} />
@@ -191,7 +217,6 @@ function Users() {
           </div>
         )}
 
-        {/* Table Section */}
         {loading ? (
           <div className="loading-state">
             <div className="spinner"></div>
@@ -350,6 +375,18 @@ function Users() {
                               <Edit2 size={14} />
                             </button>
                             <button
+                              className={`btn-action ${userData.admin ? "btn-demote" : "btn-promote"}`}
+                              onClick={() =>
+                                handlePromoteUser(userData.id, userData.admin)
+                              }
+                              title={
+                                userData.admin
+                                  ? "Rétrograder en utilisateur"
+                                  : "Promouvoir en administrateur"
+                              }>
+                              <Crown size={14} />
+                            </button>
+                            <button
                               className="btn-action btn-delete"
                               onClick={() =>
                                 handleDeleteUser(userData.id, userData.admin)
@@ -399,7 +436,6 @@ function Users() {
         )}
       </div>
 
-      {/* User Profile Modal */}
       {selectedUser && (
         <div className="modal-overlay" onClick={() => setSelectedUser(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

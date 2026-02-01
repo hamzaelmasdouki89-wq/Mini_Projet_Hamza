@@ -16,7 +16,6 @@ import {
   X,
   Info,
   Loader,
-  Filter,
 } from "lucide-react";
 import "./MyRequests.css";
 
@@ -162,7 +161,6 @@ function MyRequests() {
 
   return (
     <div className="myrequests-container">
-      {/* Header */}
       <div className="myrequests-header">
         <div className="header-top">
           <div className="header-title">
@@ -216,7 +214,6 @@ function MyRequests() {
         </div>
       </div>
 
-      {/* Error Alert */}
       {error && (
         <div className="alert alert-danger">
           <AlertCircle size={18} />
@@ -224,7 +221,6 @@ function MyRequests() {
         </div>
       )}
 
-      {/* Filters */}
       <div className="filters-bar">
         <div className="search-box">
           <Search size={18} />
@@ -261,7 +257,6 @@ function MyRequests() {
         </div>
       </div>
 
-      {/* Table */}
       <div className="table-wrapper">
         {filteredRequests.length === 0 ? (
           <div className="empty-state">
@@ -342,7 +337,6 @@ function MyRequests() {
         )}
       </div>
 
-      {/* Pagination */}
       {filteredRequests.length > 0 && (
         <div className="pagination">
           <button
@@ -363,7 +357,6 @@ function MyRequests() {
         </div>
       )}
 
-      {/* Details Modal */}
       {selectedRequest &&
         createPortal(
           <div

@@ -34,7 +34,6 @@ function MyColor() {
     { name: "Orange", value: "#ff6b35" },
   ];
 
-  // Get age directly from user object
   const userAge = user?.age;
   const isUnderAge = userAge !== null && userAge !== undefined && userAge < 15;
 
@@ -43,7 +42,6 @@ function MyColor() {
   console.log("Est mineur:", isUnderAge);
   console.log("Couleur sélectionnée:", selectedColor);
 
-  // Update selected color when user changes
   useEffect(() => {
     if (user?.couleur) {
       setSelectedColor(user.couleur);
@@ -58,7 +56,6 @@ function MyColor() {
       return;
     }
 
-    // Immediately update UI
     setSelectedColor(colorValue);
     setError("");
     setSuccess("");
@@ -76,7 +73,6 @@ function MyColor() {
 
       console.log("Réponse de l'API:", response.data);
 
-      // Update Redux with new color
       dispatch({
         type: "UPDATE_USER_COLOR",
         payload: colorValue,
@@ -87,7 +83,6 @@ function MyColor() {
     } catch (err) {
       setError("Erreur lors de la mise à jour de la couleur");
       console.error("Erreur complète:", err);
-      // Revert color on error
       setSelectedColor(user?.couleur || "#1d9bf0");
     } finally {
       setLoading(false);
@@ -99,7 +94,6 @@ function MyColor() {
 
   return (
     <div className="mycolor-container">
-      {/* Header */}
       <div className="mycolor-header">
         <div className="header-top">
           <div className="header-title">
@@ -114,7 +108,6 @@ function MyColor() {
         </div>
       </div>
 
-      {/* Age Restriction Alert */}
       {isUnderAge && (
         <div className="alert alert-restriction">
           <div className="restriction-content">
@@ -130,7 +123,6 @@ function MyColor() {
         </div>
       )}
 
-      {/* Alerts */}
       {error && (
         <div className="alert alert-danger">
           <AlertCircle size={18} />
@@ -144,7 +136,6 @@ function MyColor() {
         </div>
       )}
 
-      {/* Current Color Display */}
       <div className="current-color-display">
         <div className="color-preview-container">
           <div
@@ -163,7 +154,6 @@ function MyColor() {
         </div>
       </div>
 
-      {/* Color Selection Grid - Hidden if under age */}
       {!isUnderAge && (
         <div className="color-selection-section">
           <div className="section-header">
@@ -198,7 +188,6 @@ function MyColor() {
         </div>
       )}
 
-      {/* Profile Preview */}
       <div className="preview-section">
         <div className="section-header">
           <h3>
@@ -233,7 +222,6 @@ function MyColor() {
         </div>
       </div>
 
-      {/* Color Information */}
       {!isUnderAge && (
         <div className="info-section">
           <div className="section-header">
@@ -276,7 +264,6 @@ function MyColor() {
         </div>
       )}
 
-      {/* Age Information Card - Shown if under age */}
       {isUnderAge && (
         <div className="info-section">
           <div className="section-header">

@@ -107,7 +107,6 @@ function Profile() {
     setSuccess("");
 
     try {
-      // Validation
       if (
         !formData.nom.trim() ||
         !formData.prenom.trim() ||
@@ -163,7 +162,6 @@ function Profile() {
         payload: updatedUser,
       });
 
-      // ✅ If color changed, also dispatch UPDATE_USER_COLOR for consistency
       if (formData.couleur !== user?.couleur) {
         dispatch({
           type: "UPDATE_USER_COLOR",
@@ -213,7 +211,6 @@ function Profile() {
       )}
 
       <div className="profile-content">
-        {/* Avatar Section */}
         <div className="profile-avatar-section">
           <div
             className="profile-avatar-large"
@@ -229,11 +226,9 @@ function Profile() {
           </div>
         </div>
 
-        {/* Form Section */}
         <div className="profile-form-section">
           {isEditing ? (
             <form className="profile-form">
-              {/* Basic Info */}
               <div className="form-section-title">
                 Informations Personnelles
               </div>
@@ -316,7 +311,6 @@ function Profile() {
                 />
               </div>
 
-              {/* Location & Currency */}
               <div className="form-section-title">Localisation & Devise</div>
 
               <div className="form-group">
@@ -355,7 +349,6 @@ function Profile() {
                 </div>
               </div>
 
-              {/* Color Selection */}
               <div className="form-section-title">Couleur Préférée</div>
 
               <div className="form-group full-width">
@@ -382,7 +375,6 @@ function Profile() {
                 </div>
               </div>
 
-              {/* Avatar & Photo */}
               <div className="form-section-title">Images de Profil</div>
 
               <div className="form-group">
@@ -419,7 +411,6 @@ function Profile() {
                 <small>Par défaut: image générée automatiquement</small>
               </div>
 
-              {/* Password Change */}
               <div className="form-section-title">Mot de Passe (Optionnel)</div>
 
               <div className="form-group">
@@ -458,7 +449,6 @@ function Profile() {
                 />
               </div>
 
-              {/* Form Actions */}
               <div className="form-actions">
                 <button
                   type="button"
